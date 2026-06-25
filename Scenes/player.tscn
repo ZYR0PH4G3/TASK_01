@@ -4,16 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://4mjqx8v8gk73" path="res://orc07.png" id="2_6t5aa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3nfwx"]
-radius = 261.33337
+radius = 392.2811
 
 [node name="Player" type="CharacterBody2D" unique_id=1288799807]
 script = ExtResource("1_cvnsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=975541459]
+position = Vector2(147, 557)
+scale = Vector2(0.1875, 0.1875)
+shape = SubResource("CircleShape2D_3nfwx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1749938484]
 position = Vector2(138.3125, 566)
 scale = Vector2(0.1875, 0.1875)
 texture = ExtResource("2_6t5aa")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=975541459]
-position = Vector2(46.333336, -48)
-shape = SubResource("CircleShape2D_3nfwx")
