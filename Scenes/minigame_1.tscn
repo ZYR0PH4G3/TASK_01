@@ -1,10 +1,51 @@
 [gd_scene format=3 uid="uid://bdw6cwl4vh41h"]
 
-[ext_resource type="Texture2D" uid="uid://bqk1msyli8y70" path="res://pixel-art-seamless-background-location-snowy-forest-night-landscape-game-application-pixel-art-seamless-background-103455541.webp" id="1_enoba"]
+[ext_resource type="Texture2D" uid="uid://va7uqp130wfw" path="res://Scenes/360_F_297325959_RUht1AyI03QQKCS7sXX9rFuC36KuoK66.jpg" id="1_11mgy"]
 [ext_resource type="PackedScene" uid="uid://bwfap88bbvjxx" path="res://Scenes/player.tscn" id="2_11mgy"]
+[ext_resource type="Texture2D" uid="uid://bf48kv5jw0ysh" path="res://Heart.svj.webp" id="3_f6tb2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3nfwx"]
-size = Vector2(1152, 152)
+size = Vector2(1152, 33.5)
+
+[sub_resource type="Animation" id="Animation_o6yob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Garlic:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(405, 435)]
+}
+
+[sub_resource type="Animation" id="Animation_5txvl"]
+resource_name = "floating"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Garlic:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(405, 435), Vector2(407, 430)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0uv5o"]
+_data = {
+&"RESET": SubResource("Animation_o6yob"),
+&"floating": SubResource("Animation_5txvl")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3nfwx"]
+radius = 23.021729
 
 [node name="Minigame_1" type="Node2D" unique_id=1695378119]
 
@@ -15,19 +56,51 @@ autoscroll = Vector2(100, 0)
 [node name="Background" type="TextureRect" parent="Scrolling_background" unique_id=1765576208]
 offset_right = 1152.0
 offset_bottom = 649.0
-texture = ExtResource("1_enoba")
+texture = ExtResource("1_11mgy")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1274442104]
+[node name="StaticBody1" type="StaticBody2D" parent="." unique_id=1274442104]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=111862762]
-position = Vector2(576, 573)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody1" unique_id=111862762]
+position = Vector2(576, 607)
 shape = SubResource("RectangleShape2D_3nfwx")
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=525265662]
-offset_top = 497.0
+[node name="ColorRect" type="ColorRect" parent="StaticBody1" unique_id=525265662]
+offset_top = 564.0
 offset_right = 1152.0
 offset_bottom = 649.0
 color = Color(0.8039216, 0.80784315, 0.23921569, 1)
 
+[node name="StaticBody2" type="StaticBody2D" parent="." unique_id=199774170]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2" unique_id=1318790029]
+position = Vector2(181, 489.75)
+shape = SubResource("RectangleShape2D_3nfwx")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2" unique_id=1832290251]
+offset_left = -395.0
+offset_top = 473.0
+offset_right = 757.0
+offset_bottom = 506.0
+color = Color(0.8039216, 0.80784315, 0.23921569, 1)
+
 [node name="Player" parent="." unique_id=1288799807 instance=ExtResource("2_11mgy")]
-position = Vector2(453, -150)
+position = Vector2(885, -55)
+
+[node name="Garlic" type="Node2D" parent="." unique_id=1694117113]
+
+[node name="Garlic" type="TextureRect" parent="Garlic" unique_id=2074426752]
+offset_left = 405.0
+offset_top = 435.0
+offset_right = 446.70135
+offset_bottom = 471.0
+texture = ExtResource("3_f6tb2")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Garlic" unique_id=1207912116]
+libraries/ = SubResource("AnimationLibrary_0uv5o")
+
+[node name="Area2D" type="Area2D" parent="Garlic" unique_id=104071050]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garlic/Area2D" unique_id=154814048]
+position = Vector2(428, 450)
+shape = SubResource("CircleShape2D_3nfwx")
