@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bdw6cwl4vh41h"]
+
+[ext_resource type="Texture2D" uid="uid://bqk1msyli8y70" path="res://pixel-art-seamless-background-location-snowy-forest-night-landscape-game-application-pixel-art-seamless-background-103455541.webp" id="1_enoba"]
+[ext_resource type="PackedScene" uid="uid://bwfap88bbvjxx" path="res://Scenes/player.tscn" id="2_11mgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nfwx"]
+size = Vector2(1152, 152)
+
+[node name="Minigame_1" type="Node2D" unique_id=1695378119]
+
+[node name="Scrolling_background" type="Parallax2D" parent="." unique_id=1953887327]
+repeat_size = Vector2(1000, 0)
+autoscroll = Vector2(100, 0)
+
+[node name="Background" type="TextureRect" parent="Scrolling_background" unique_id=1765576208]
+offset_right = 1152.0
+offset_bottom = 649.0
+texture = ExtResource("1_enoba")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1274442104]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=111862762]
+position = Vector2(576, 573)
+shape = SubResource("RectangleShape2D_3nfwx")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=525265662]
+offset_top = 497.0
+offset_right = 1152.0
+offset_bottom = 649.0
+color = Color(0.8039216, 0.80784315, 0.23921569, 1)
+
+[node name="Player" parent="." unique_id=1288799807 instance=ExtResource("2_11mgy")]
+position = Vector2(428, -117)
