@@ -1,21 +1,21 @@
+extends Node2D
 
-extends Node2D  # Changed to Node2D because your parent node is a Node2D!
+# We change these to standard variables so they don't stall the loading phase
+var player: CharacterBody2D = null
+var player_area: Area2D = null
 
-# Grabs the player node from the parent scene
-@onready var player: CharacterBody2D = $"../Player" 
-
-# Grabs the collision area specifically attached to your player node
-@onready var player_area = $"../Player/Area2D"
-
-# Grabs the Area2D child node INSIDE this garlic node
 @onready var garlic_area = $Area2D
-
-# Signal broadcasted when garlic is picked up
 signal garlic_collected
 
-func _process(delta: float) -> void: 
-	# We check if the player's area touches this garlic's child Area2D
-	if player_area.overlaps_area(garlic_area): 
+func _ready() -> void:
+	# Safely find the player in the scene tree once everything is loaded
+	player = get_parent().get_node("Player")
+	if player:
+		player_area = player.get_node("Area2D")
+
+func _process(_delta: float) -> void: 
+	# Only run the collision check if the player was successfully found
+	if player_area and player_area.overlaps_area(garlic_area): 
 		if self.visible:
 			emit_signal("garlic_collected") 
 			self.hide()

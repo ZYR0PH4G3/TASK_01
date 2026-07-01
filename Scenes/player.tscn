@@ -18,3 +18,11 @@ shape = SubResource("CircleShape2D_3nfwx")
 position = Vector2(142, 566)
 scale = Vector2(0.1875, 0.1875)
 texture = ExtResource("2_6t5aa")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=562484890]
+position = Vector2(142, 566)
+scale = Vector2(0.1875, 0.1875)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=955542819]
+position = Vector2(26.666668, -48)
+shape = SubResource("CircleShape2D_3nfwx")

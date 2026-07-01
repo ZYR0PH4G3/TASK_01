@@ -292,9 +292,6 @@ offset_right = 256.0
 offset_bottom = 297.0
 color = Color(0.8039216, 0.80784315, 0.23921569, 1)
 
-[node name="Player" parent="." unique_id=1288799807 instance=ExtResource("2_11mgy")]
-position = Vector2(928, -40)
-
 [node name="Garlic" type="Node2D" parent="." unique_id=729632371]
 script = ExtResource("3_f6tb2")
 
@@ -305,6 +302,7 @@ offset_left = 32.0
 offset_top = 88.0
 offset_right = 78.33484
 offset_bottom = 128.0
+mouse_filter = 2
 texture = SubResource("CompressedTexture2D_11mgy")
 expand_mode = 1
 
@@ -326,6 +324,7 @@ offset_left = 168.0
 offset_top = 216.0
 offset_right = 208.0
 offset_bottom = 256.0
+mouse_filter = 2
 texture = SubResource("CompressedTexture2D_0uv5o")
 expand_mode = 1
 
@@ -347,6 +346,7 @@ offset_left = 416.0
 offset_top = 288.0
 offset_right = 456.0
 offset_bottom = 328.0
+mouse_filter = 2
 texture = SubResource("CompressedTexture2D_0uv5o")
 expand_mode = 1
 
@@ -368,6 +368,7 @@ offset_left = 256.0
 offset_top = 416.0
 offset_right = 296.0
 offset_bottom = 456.0
+mouse_filter = 2
 texture = SubResource("CompressedTexture2D_0uv5o")
 expand_mode = 1
 
@@ -389,6 +390,7 @@ offset_left = 848.0
 offset_top = 536.0
 offset_right = 888.0
 offset_bottom = 576.0
+mouse_filter = 2
 texture = SubResource("CompressedTexture2D_0uv5o")
 expand_mode = 1
 
@@ -399,3 +401,6 @@ shape = SubResource("CircleShape2D_ocnw0")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Garlic5" unique_id=2095722510]
 libraries/ = SubResource("AnimationLibrary_btwg3")
 autoplay = &"floating6.0"
+
+[node name="Player" parent="." unique_id=1288799807 instance=ExtResource("2_11mgy")]
+position = Vector2(920, -48)
