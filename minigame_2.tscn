@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://buxwgd88ou4kq"]
+
+[ext_resource type="Script" uid="uid://bhgxdgp37fo0n" path="res://minigame_2.gd" id="1_2425y"]
+[ext_resource type="Texture2D" uid="uid://va7uqp130wfw" path="res://Scenes/360_F_297325959_RUht1AyI03QQKCS7sXX9rFuC36KuoK66.jpg" id="1_vdqgs"]
+[ext_resource type="Script" uid="uid://0wdgds3w7a84" path="res://button_1.gd" id="2_2425y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x31c"]
+size = Vector2(1152, 72)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3qiw4"]
+load_path = "res://.godot/imported/Heart.svj.webp-7a40eefb935842fe033e3ed171f0d1dc.ctex"
+
+[node name="Minigame_2" type="Node2D" unique_id=728139950]
+script = ExtResource("1_2425y")
+
+[node name="Scrolling_background" type="Parallax2D" parent="." unique_id=1563672678]
+repeat_size = Vector2(1000, 0)
+autoscroll = Vector2(100, 0)
+
+[node name="Background" type="TextureRect" parent="Scrolling_background" unique_id=1601917105]
+offset_right = 1152.0
+offset_bottom = 649.0
+texture = ExtResource("1_vdqgs")
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody1" type="StaticBody2D" parent="Scrolling_background" unique_id=823806530]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scrolling_background/StaticBody1" unique_id=937582446]
+position = Vector2(576, 612)
+shape = SubResource("RectangleShape2D_5x31c")
+
+[node name="ColorRect" type="ColorRect" parent="Scrolling_background/StaticBody1" unique_id=1460967318]
+offset_top = 576.0
+offset_right = 1152.0
+offset_bottom = 649.0
+color = Color(0.8039216, 0.80784315, 0.23921569, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Button_1" type="TextureButton" parent="." unique_id=137371525]
+offset_left = 200.0
+offset_top = 91.0
+offset_right = 304.0
+offset_bottom = 180.0
+texture_normal = SubResource("CompressedTexture2D_3qiw4")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_2425y")
+
+[node name="Button_2" type="TextureButton" parent="." unique_id=1035828615]
+offset_left = 148.0
+offset_top = 402.0
+offset_right = 252.0
+offset_bottom = 491.0
+texture_normal = SubResource("CompressedTexture2D_3qiw4")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_2425y")
+
+[node name="Button_3" type="TextureButton" parent="." unique_id=2083411754]
+offset_left = 853.0
+offset_top = 457.0
+offset_right = 957.0
+offset_bottom = 546.0
+texture_normal = SubResource("CompressedTexture2D_3qiw4")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_2425y")
+
+[node name="Button_4" type="TextureButton" parent="." unique_id=1551429086]
+offset_left = 576.0
+offset_top = 235.0
+offset_right = 680.0
+offset_bottom = 324.0
+texture_normal = SubResource("CompressedTexture2D_3qiw4")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_2425y")
+
+[node name="Button_5" type="TextureButton" parent="." unique_id=228784818]
+offset_left = 965.0
+offset_top = 60.0
+offset_right = 1069.0
+offset_bottom = 149.0
+texture_normal = SubResource("CompressedTexture2D_3qiw4")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_2425y")
+
+[connection signal="pressed" from="Button_1" to="Button_1" method="_on_pressed"]
+[connection signal="pressed" from="Button_2" to="Button_2" method="_on_pressed"]
+[connection signal="pressed" from="Button_3" to="Button_3" method="_on_pressed"]
+[connection signal="pressed" from="Button_4" to="Button_4" method="_on_pressed"]
+[connection signal="pressed" from="Button_5" to="Button_5" method="_on_pressed"]

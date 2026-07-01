@@ -1,21 +1,25 @@
 extends Node2D
 
-# We change these to standard variables so they don't stall the loading phase
 var player: CharacterBody2D = null
 var player_area: Area2D = null
 
 @onready var garlic_area = $Area2D
-signal garlic_collected
 
 func _ready() -> void:
-	# Safely find the player in the scene tree once everything is loaded
-	player = get_parent().get_node("Player")
+	player = get_parent().get_node_or_null("Player")
 	if player:
-		player_area = player.get_node("Area2D")
+		player_area = player.get_node_or_null("Area2D")
 
 func _process(_delta: float) -> void: 
-	# Only run the collision check if the player was successfully found
 	if player_area and player_area.overlaps_area(garlic_area): 
 		if self.visible:
-			emit_signal("garlic_collected") 
+			print("SUCCESS: Player touched garlic: ", self.name)
+			
+			# Check if the parent actually holds your level manager script
+			if get_parent().has_method("garlic_collect"):
+				get_parent().garlic_collect()
+				print("SUCCESS: Score sent to main script!")
+			else:
+				print("ERROR: Garlic parent is '", get_parent().name, "' and lacks garlic_collect()!")
+			
 			self.hide()

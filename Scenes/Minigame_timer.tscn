@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cxa6bmim4jbif" path="res://minigame_timer.gd" id="1_c13x6"]
 
-[node name="Node2D" type="Node2D" unique_id=2141700103]
+[node name="Minigametimer" type="Node2D" unique_id=2141700103]
 script = ExtResource("1_c13x6")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=243041976]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="timer" type="RichTextLabel" parent="." unique_id=243041976]
+offset_right = 253.0
+offset_bottom = 50.0
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/normal_font_size = 74
+text = "0:00"
+fit_content = true
+horizontal_alignment = 1
