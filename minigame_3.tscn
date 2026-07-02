@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cxxbmyvey64f0"]
+
+[ext_resource type="Texture2D" uid="uid://va7uqp130wfw" path="res://Scenes/360_F_297325959_RUht1AyI03QQKCS7sXX9rFuC36KuoK66.jpg" id="1_t3ksd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqi5c"]
+size = Vector2(1152, 72)
+
+[node name="Minigame_3" type="Node2D" unique_id=1170354876]
+
+[node name="Scrolling_background" type="Parallax2D" parent="." unique_id=1760902938]
+repeat_size = Vector2(1000, 0)
+autoscroll = Vector2(100, 0)
+
+[node name="Background" type="TextureRect" parent="Scrolling_background" unique_id=830902642]
+offset_right = 1152.0
+offset_bottom = 649.0
+texture = ExtResource("1_t3ksd")
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform1" type="StaticBody2D" parent="." unique_id=1310468715]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" unique_id=299404737]
+position = Vector2(576, 612)
+shape = SubResource("RectangleShape2D_gqi5c")
+
+[node name="ColorRect" type="ColorRect" parent="Platform1" unique_id=1019057963]
+offset_top = 576.0
+offset_right = 1152.0
+offset_bottom = 649.0
+color = Color(0.8039216, 0.80784315, 0.23921569, 1)
+metadata/_edit_use_anchors_ = true
