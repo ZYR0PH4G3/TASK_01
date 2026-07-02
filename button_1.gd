@@ -1,6 +1,7 @@
 extends TextureButton
-@onready var parent = $".."
 
-func _on_pressed() -> void: #YOU NEED TO CONNECT THIS SIGNAL FROM THE TAB NEXT TO INSPECTOR!!
+func _on_pressed() -> void: 
 	hide()
-	parent.buttons_pressed += 1
+
+	if get_owner() and get_owner().has_method("register_click"):
+		get_owner().register_click()

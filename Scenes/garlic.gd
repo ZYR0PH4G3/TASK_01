@@ -15,7 +15,6 @@ func _process(_delta: float) -> void:
 		if self.visible:
 			print("SUCCESS: Player touched garlic: ", self.name)
 			
-			# Check if the parent actually holds your level manager script
 			if get_parent().has_method("garlic_collect"):
 				get_parent().garlic_collect()
 				print("SUCCESS: Score sent to main script!")
